@@ -5,9 +5,9 @@ import ProtectedRoute from './components/ProtectedRoute';
 // Import Pages
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Home from './pages/Home'; // 👈 IMPORTING THE REAL HOME PAGE HERE
 
-// Temporary Placeholders (We will build the real ones on Day 3, 4, & 5)
-const Home = () => <div className="text-white text-center py-20 text-3xl font-bold">🏠 Home Page (Coming Day 3)</div>;
+// Temporary Placeholders (We will build the real ones on Day 4 & 5)
 const RecipeDetails = () => <div className="text-white text-center py-20 text-3xl font-bold">📖 Recipe Details (Coming Day 4)</div>;
 const AddRecipe = () => <div className="text-white text-center py-20 text-3xl font-bold">➕ Add Recipe (Coming Day 4)</div>;
 const MyRecipes = () => <div className="text-white text-center py-20 text-3xl font-bold">👨‍🍳 My Recipes (Coming Day 5)</div>;
@@ -16,59 +16,41 @@ const Favorites = () => <div className="text-white text-center py-20 text-3xl fo
 function App() {
     return (
         <div className="min-h-screen">
-            {/* 1. The Navbar shows on every single page */}
             <Navbar />
             
-            {/* 2. The Routes decide which page to show based on the URL */}
             <Routes>
-                {/* --- PUBLIC ROUTES (Anyone can see) --- */}
+                {/* Public Routes */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
 
-                {/* --- PROTECTED ROUTES (Must be logged in) --- */}
+                {/* Protected Routes */}
                 <Route 
                     path="/" 
                     element={
                         <ProtectedRoute>
-                            <Home />
+                            <Home /> {/* 👈 USING THE REAL HOME PAGE HERE */}
                         </ProtectedRoute>
                     } 
                 />
                 
                 <Route 
                     path="/recipe/:id" 
-                    element={
-                        <ProtectedRoute>
-                            <RecipeDetails />
-                        </ProtectedRoute>
-                    } 
+                    element={<ProtectedRoute><RecipeDetails /></ProtectedRoute>} 
                 />
 
                 <Route 
                     path="/add-recipe" 
-                    element={
-                        <ProtectedRoute>
-                            <AddRecipe />
-                        </ProtectedRoute>
-                    } 
+                    element={<ProtectedRoute><AddRecipe /></ProtectedRoute>} 
                 />
 
                 <Route 
                     path="/my-recipes" 
-                    element={
-                        <ProtectedRoute>
-                            <MyRecipes />
-                        </ProtectedRoute>
-                    } 
+                    element={<ProtectedRoute><MyRecipes /></ProtectedRoute>} 
                 />
 
                 <Route 
                     path="/favorites" 
-                    element={
-                        <ProtectedRoute>
-                            <Favorites />
-                        </ProtectedRoute>
-                    } 
+                    element={<ProtectedRoute><Favorites /></ProtectedRoute>} 
                 />
             </Routes>
         </div>
