@@ -16,6 +16,10 @@ const authRoutes = require('./routes/auth');
 const recipeRoutes = require('./routes/recipes');
 const aiRoutes = require('./routes/ai');
 
+
+
+const favoriteRoutes = require('./routes/favorites');
+
 // ─── Create Express app ───
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,13 +34,15 @@ app.use(helmet());
 // ─── CORS Configuration ───
 // Allows frontend (Netlify) + local dev to talk to this backend
 const allowedOrigins = [
-    'https://ai-recipe-finder-ayush.netlify.app',  
-    'http://localhost:5500',                       
-    'http://127.0.0.1:5500',                       
-    'http://localhost:3000',                       
+    'https://ai-recipe-finder-ayush.netlify.app',
+    'http://localhost:5500',
+    'http://127.0.0.1:5500',
+    'http://localhost:3000',
     'http://localhost:8000',
-    'http://localhost:5173',   // 👈 ADD THIS LINE (Vite React port)
-    'http://127.0.0.1:5173'    // 👈 ADD THIS LINE (Just in case)
+    'http://localhost:5173',
+    'http://localhost:5174', // 👈 ADD THIS
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:5174'  // 👈 ADD THIS
 ];
 
 app.use(cors({
@@ -74,6 +80,7 @@ app.use('/api/recipes', recipeRoutes);
 
 // AI routes (generate recipe, substitute)
 app.use('/api/ai', aiRoutes);
+app.use('/api/favorites', favoriteRoutes);
 
 // ============================================
 // TEST ROUTES

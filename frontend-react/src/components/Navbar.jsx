@@ -28,13 +28,19 @@ export default function Navbar() {
                     <>
                         <Link to="/my-recipes" className="text-gray-700 hover:text-primary font-medium hidden sm:block">My Recipes</Link>
                         <Link to="/favorites" className="text-gray-700 hover:text-primary font-medium hidden sm:block">Favorites</Link>
-                        <Link to="/add-recipe" className="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors shadow-md hidden sm:block">
+                        
+                        {/* Added whitespace-nowrap so it stays on one line */}
+                        <Link to="/add-recipe" className="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors shadow-md hidden sm:block whitespace-nowrap">
                             + Add Recipe
                         </Link>
                         
                         <div className="flex items-center gap-3 border-l pl-4 border-gray-300">
-                            <span className="text-gray-600 font-medium hidden sm:block">👤 {user.username}</span>
-                            <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 font-medium shadow-md">
+                            {/* MADE THE USERNAME A LINK TO THE PROFILE PAGE */}
+                            <Link to="/profile" className="text-gray-600 font-medium hidden sm:block hover:text-primary transition-colors cursor-pointer">
+                                👤 {user.username}
+                            </Link>
+                            
+                            <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 font-medium shadow-md transition-colors">
                                 Logout
                             </button>
                         </div>
