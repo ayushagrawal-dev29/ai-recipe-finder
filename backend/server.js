@@ -30,11 +30,13 @@ app.use(helmet());
 // ─── CORS Configuration ───
 // Allows frontend (Netlify) + local dev to talk to this backend
 const allowedOrigins = [
-    'https://ai-recipe-finder-ayush.netlify.app',  // ← Your Netlify URL
-    'http://localhost:5500',                       // ← VS Code Live Server
-    'http://127.0.0.1:5500',                       // ← VS Code Live Server
-    'http://localhost:3000',                       // ← Local backend test
-    'http://localhost:8000'                        // ← Python HTTP server
+    'https://ai-recipe-finder-ayush.netlify.app',  
+    'http://localhost:5500',                       
+    'http://127.0.0.1:5500',                       
+    'http://localhost:3000',                       
+    'http://localhost:8000',
+    'http://localhost:5173',   // 👈 ADD THIS LINE (Vite React port)
+    'http://127.0.0.1:5173'    // 👈 ADD THIS LINE (Just in case)
 ];
 
 app.use(cors({
