@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "home": "Home",
+    "aiSearch": "AI Search",
+    "myRecipes": "My Recipes",
+    "favorites": "Favorites",
+    "addRecipe": "+ Add Recipe",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "ai": {
+    "title": "AI Recipe Generator",
+    "subtitle": "Type the ingredients you have, and AI will create a recipe!",
+    "placeholder": "e.g., Chicken, Rice, Tomatoes, Garlic",
+    "speak": "🎤 Speak Ingredients",
+    "generate": "✨ Generate Recipe",
+    "loading": "Generating Magic..."
+  }
+}
